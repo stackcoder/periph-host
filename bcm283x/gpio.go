@@ -1439,9 +1439,7 @@ func (d *driverGPIO) Init() (bool, error) {
 		{"PWM1_OUT", "PWM1"},
 	}
 	for _, a := range aliases {
-		if err := gpioreg.RegisterAlias(a[0], a[1]); err != nil {
-			return true, err
-		}
+		gpioreg.RegisterAlias(a[0], a[1]);
 	}
 
 	m, err := pmem.MapGPIO()
